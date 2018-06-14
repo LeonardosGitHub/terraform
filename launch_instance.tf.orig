@@ -1,0 +1,16 @@
+provider "aws" {
+        access_key = "accessKey"
+        secret_key = "secretKey"
+        region = "us-east-2"
+}
+
+resource "aws_instance" "example" {
+        ami = "ami-<ID>"
+        instance_type = "t2.micro"
+        key_name = "ssh_key"
+        security_groups= ["securityGroup"]
+        vpc_security_group_ids = ["subnet-XYZ"]
+        tags {
+         Name = "terraform-instance"
+        }
+}
