@@ -1,11 +1,13 @@
+/*
 {
-            "Properties": {
-                "Subscription": [
-                    {
-                        "Endpoint": {
-                            "Ref": "notificationEmail"
-                        },
-                        "Protocol": "email"
-                    }
-                ]
-            }
+"Properties": {
+    "Subscription": [
+        {
+            "Endpoint": {
+                "Ref": "notificationEmail"
+            },
+            "Protocol": "email"
+        }
+    ]
+}
+*/
