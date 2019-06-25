@@ -62,7 +62,6 @@ resource "aws_security_group" "bigipexternalsecuritygroup" {
   }
 }
 
-
 /*
 {
     "Properties": {
