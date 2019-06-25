@@ -152,16 +152,14 @@ variable "scaleUpBytesThreshold" {
   default     = "us-east-1"
 }
 variable "scalingMaxSize" {
-  description = ""
-  default     = "us-east-1"
+  description = "Maximum number of BIG-IPs to scale UP"
 }
 variable "scalingMinSize" {
-  description = ""
-  default     = "us-east-1"
+  description = "Minimum number of BIG-IPs to build"
 }
 variable "sshKey" {
   description = ""
-  default     = "us-east-1"
+  default     = "leonardo_f5_aws"
 }
 variable "subnets" {
   description = ""
@@ -178,6 +176,21 @@ variable "timezone" {
 variable "virtualServicePort" {
   description = ""
   default     = "us-east-1"
+}
+variable "LaunchConfigUserData" {
+  description = ""
+  default     = <<-EOF
+                #!/bin/bash -x\n",
+                "/opt/aws/apitools/cfn-init/bin/cfn-init -v -s "AWS::StackId" -r BigipLaunchConfig --region "AWS::Region" \n"
+                EOF
+                "#!/bin/bash -x\n",
+                "/opt/aws/apitools/cfn-init/bin/cfn-init -v -s {"Ref": "AWS::StackId"} -r BigipLaunchConfig --region {"Ref": "AWS::Region"}\n"
+}
+variable "LaunchConfigUserData2" {
+  description = ""
+  default     = <<-EOF
+                !/bin/bash -x /opt/aws/apitools/cfn-init/bin/cfn-init -v -s {\"Ref\": \"AWS::StackId\"} -r BigipLaunchConfig --region {\"Ref\": \"AWS::Region\"}
+                EOF
 }
 
 /*
