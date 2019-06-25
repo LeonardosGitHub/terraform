@@ -10,4 +10,15 @@
         }
     }
 }
+##  2019-06-21 I Believe this matches the CFT configuration, perhaps naming will need to be adjusted##
 */
+
+
+resource "aws_s3_bucket" "S3Bucket" {
+  bucket = lower("waf-${var.fqdn_app_name}-${var.deploymentName}-bucket")
+  acl    = "private"
+
+  tags = {
+    Name = "waf-${var.fqdn_app_name}-${var.deploymentName}"
+  }
+}
